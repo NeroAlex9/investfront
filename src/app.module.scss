@@ -1,0 +1,28 @@
+@use './vars' as *;
+
+.app{
+  width: 100vw;
+
+  &__header{
+    width: 100%;
+    background-color: $color-yellow;
+  }
+  &__main{
+    width: 100%;
+    background-color: rgba(36,74,127,.09);
+
+  }
+  &__footer{
+    width: 100%;
+    background-color: $color-yellow;
+
+  }
+
+}
+.container{
+  max-width: 1110px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+

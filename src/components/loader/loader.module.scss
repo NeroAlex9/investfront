@@ -1,0 +1,9 @@
+@use '../../vars' as *;
+.loader{
+  min-height: 84.7vh;
+  margin: 0 auto;
+  &__icon{
+    padding-top: 200px;
+    width: 150px;
+  }
+}

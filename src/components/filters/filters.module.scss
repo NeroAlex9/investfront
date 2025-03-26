@@ -1,0 +1,29 @@
+@use '../../vars' as *;
+.filters{
+  padding: 5px 0px 5px 0px;
+  display: flex;
+  align-items: center;
+
+  &__name{
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-left: 5px;
+  }
+
+  &__list{
+    border: 2px solid $color-black;
+    background-color: $color-yellow;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  &__couponsAll{
+    margin-left: auto;
+    background-color: $color-yellow;
+    border: 2px solid $color-black;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+}
