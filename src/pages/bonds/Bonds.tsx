@@ -3,6 +3,7 @@ import {getBonds} from "../../api/getBonds";
 import {useEffect, useMemo, useState} from "react";
 import Loader from "../../components/loader/Loader";
 import Filters from "../../components/filters/Filters";
+import {getCoupons} from "../../api/getCoupons";
 
 const Bonds = () => {
     const [bonds, setBonds] = useState([]);
@@ -60,7 +61,7 @@ const Bonds = () => {
             <div className={style.bondsList}>
                 {loading ? <Loader/> : null}
                 {filteredBonds.length>0 ? (filteredBonds.map((bond, index) => (
-                        <a key={index} href={`https://www.tbank.ru/invest/bonds/${bond.ticker}/`} className={style.bond}>
+                        <a key={index} href={`https://www.tbank.ru/invest/bonds/${bond.ticker}/`} className={style.bond} target="_blank">
                             <div className={style.bond__text}>Название: <p
                                 className={style.bond__subtext}>{bond.name}</p></div>
                             <div className={style.bond__text}>Номинал: <p
@@ -70,6 +71,9 @@ const Bonds = () => {
                             <div className={style.bond__text}>Купон фиксированный: <p
                                 className={style.bond__subtext}>{bond.floatingCouponFlag ? 'Плавающий' : 'Фиксированный'}</p>
                             </div>
+                            {/*<div className={style.bond__text}>Стоимость последнего купона: <p*/}
+                            {/*    className={style.bond__subtext}>{getCoupons(bond.figi)}</p>*/}
+                            {/*</div>*/}
                             <div className={style.bond__text}>Дата окончания: <p
                                 className={style.bond__subtext}>{bond.maturityDate ? bond.maturityDate.slice(0, 10) : "Не указано"}</p>
                             </div>
@@ -77,7 +81,7 @@ const Bonds = () => {
                                 className={style.bond__subtext}>{riskLevel(bond.riskLevel)}</p>
                             </div>
                         </a>
-                    ))) : <div>Таких купонов нет</div>
+                    ))) : null
                 }
             </div>
         </div>
