@@ -1,4 +1,4 @@
-export const getCoupons = async (bondsId) => {
+export const getCoupons = async (bondsId:string) => {
     try {
             const response = await fetch(`http://localhost:3000/coupons/${bondsId}`);
             const data = await response.json();

@@ -1,6 +1,11 @@
 import style from "./filters.module.scss";
 
-function Filters({handleFilters, coupons}) {
+interface IFilters {
+    handleFilters: (name: string, value: string) => void;
+    coupons: number
+}
+
+function Filters({handleFilters, coupons} : IFilters) {
     return (
         <div className={style.filters}>
             <div className={style.filters__name}>Купонов в год:</div>

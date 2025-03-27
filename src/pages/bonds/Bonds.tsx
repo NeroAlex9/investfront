@@ -3,12 +3,35 @@ import {getBonds} from "../../api/getBonds";
 import {useEffect, useMemo, useState} from "react";
 import Loader from "../../components/loader/Loader";
 import Filters from "../../components/filters/Filters";
-import {getCoupons} from "../../api/getCoupons";
+
+interface INominal {
+    units: string;
+    currency: string;
+}
+
+interface IBond {
+    couponQuantityPerYear: number;
+    riskLevel: string;
+    floatingCouponFlag: boolean;
+    ticker: string;
+    name: string;
+    nominal: INominal;
+    maturityDate:string;
+
+}
+
+
+
+interface IFilters {
+    couponQuantityPerYear: string | "ALL";
+    riskLevel: string | "ALL";
+    floatingCouponFlag: "ALL" | "FLOATING" | "FIXED";
+}
 
 const Bonds = () => {
-    const [bonds, setBonds] = useState([]);
+    const [bonds, setBonds] = useState<IBond[]>([]);
     const [loading, setLoading] = useState(true);
-    const [filters, setFilters] = useState({
+    const [filters, setFilters] = useState<IFilters>({
         couponQuantityPerYear: "ALL",
         riskLevel: "ALL",
         floatingCouponFlag: "ALL",
@@ -45,7 +68,7 @@ const Bonds = () => {
     }
 
     const filteredBonds = useMemo(() => {
-        return bonds.filter(bond => {
+        return bonds.filter((bond:IBond)=> {
             const couponInYear = filters.couponQuantityPerYear === "ALL" || bond.couponQuantityPerYear === Number(filters.couponQuantityPerYear)
             const riskLevel = filters.riskLevel === "ALL" || bond.riskLevel === filters.riskLevel
             const floatingCouponFlag = filters.floatingCouponFlag === "ALL"
@@ -60,7 +83,7 @@ const Bonds = () => {
             <Filters handleFilters={handleFilters} coupons={filteredBonds.length} />
             <div className={style.bondsList}>
                 {loading ? <Loader/> : null}
-                {filteredBonds.length>0 ? (filteredBonds.map((bond, index) => (
+                {filteredBonds.length>0 ? (filteredBonds.map((bond:IBond, index:number) => (
                         <a key={index} href={`https://www.tbank.ru/invest/bonds/${bond.ticker}/`} className={style.bond} target="_blank">
                             <div className={style.bond__text}>Название: <p
                                 className={style.bond__subtext}>{bond.name}</p></div>
