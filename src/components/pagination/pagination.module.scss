@@ -1,0 +1,16 @@
+@use '../../vars' as *;
+.pagination{
+  justify-content: center;
+  display: flex;
+
+  &__page{
+    font-size: 25px;
+    margin: 10px;
+  }
+
+  &__button{
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+}
