@@ -51,9 +51,6 @@ const Bonds = () => {
         setFilters((prev)=>({...prev, [name]: value}))
     }
 
-
-
-
     const riskLevel = (risk: string) => {
         switch (risk) {
             case 'RISK_LEVEL_LOW':
