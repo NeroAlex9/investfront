@@ -5,6 +5,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Bonds from "./pages/bonds/Bonds";
 import Footer from "./components/footer/Footer";
 
+
 function App() {
     return (
         <div className={style.app}>
@@ -23,7 +24,7 @@ function App() {
             </div>
             <div className={style.app__footer}>
                 <div className={style.container}>
-                    <Footer/>
+                        <Footer/>
                 </div>
             </div>
         </div>

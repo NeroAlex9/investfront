@@ -1,28 +1,30 @@
 @use '../../vars' as *;
-
-.bondsList{
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.bondsPage{
+height: 100%;
 }
-
-.bond{
-  width: 300px;
-  padding: 5px;
-  margin: 5px;
-  border: 1px solid $color-black;
-  border-radius: 5px;
-  color: $color-gray;
-  text-decoration: none;
-
-  &__text{
+  .bondsList {
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  &__subtext{
-    font-family: 'TinkoffSans-Bold', sans-serif;
-    font-weight: bold;
+  .bond {
+    width: 300px;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid $color-black;
+    border-radius: 5px;
+    color: $color-gray;
+    text-decoration: none;
+
+    &__text {
+      display: flex;
+    }
+
+    &__subtext {
+      font-family: 'TinkoffSans-Bold', sans-serif;
+      font-weight: bold;
+    }
   }
-}
 

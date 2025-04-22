@@ -96,7 +96,7 @@ const Bonds = () => {
     }
 
     return (
-        <div>
+        <div className={style.bondsPage}>
             <Filters handleFilters={handleFilters} coupons={filteredBonds.length}/>
             <div className={style.bondsList}>
                 {loading ? <Loader/> : null}
@@ -125,7 +125,7 @@ const Bonds = () => {
                 ))) : null
                 }
             </div>
-            <Pagination bonds={actualBonds} nextPage={nextPage} prevPage={prevPage} />
+            <Pagination nextPage={nextPage} prevPage={prevPage} />
         </div>
     );
 };
