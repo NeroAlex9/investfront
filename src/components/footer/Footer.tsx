@@ -2,7 +2,7 @@ import style from "./footer.module.scss";
 function Footer() {
     return (
         <div className={style.footer}>
-         123
+         <p>T - API</p>
         </div>
     );
 }

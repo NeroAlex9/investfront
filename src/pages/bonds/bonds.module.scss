@@ -4,6 +4,7 @@ height: 100%;
 }
   .bondsList {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -25,6 +26,10 @@ height: 100%;
     &__subtext {
       font-family: 'TinkoffSans-Bold', sans-serif;
       font-weight: bold;
+    }
+
+    &__button{
+      margin-left: 10px;
     }
   }
 

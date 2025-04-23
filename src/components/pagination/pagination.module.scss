@@ -1,8 +1,9 @@
 @use '../../vars' as *;
 .pagination{
-  justify-content: center;
+  position: absolute;
   display: flex;
-
+  left: 47%;
+  top: 85%;
   &__page{
     font-size: 25px;
     margin: 10px;
@@ -10,6 +11,7 @@
 
   &__button{
     border: none;
+    background: none;
     font-size: 20px;
     cursor: pointer;
   }

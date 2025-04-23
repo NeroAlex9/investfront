@@ -92,6 +92,13 @@ const Bonds = () => {
         setEndIndex(endIndex-12)
     }
 
+    const [activeCoupon, setActiveCoupon] = useState<{figi: string | null, value: string}>({figi: null, value: ''})
+
+    const getCoupon = async (figi: string) =>{
+       const couponValue = await getCoupons(figi)
+        setActiveCoupon({figi, value: couponValue})
+    }
+
     return (
         <div className={style.bondsPage}>
             <Filters handleFilters={handleFilters} coupons={filteredBonds.length}/>
@@ -109,9 +116,14 @@ const Bonds = () => {
                         <div className={style.bond__text}>Купон фиксированный: <p
                             className={style.bond__subtext}>{bond.floatingCouponFlag ? 'Плавающий' : 'Фиксированный'}</p>
                         </div>
-                        {/*<div className={style.bond__text}>Стоимость последнего купона: <p*/}
-                        {/*    className={style.bond__subtext}>{getCoupons(bond.figi)}</p>*/}
-                        {/*</div>*/}
+                        <div className={style.bond__text}>Стоимость последнего купона:
+                            <p className={style.bond__subtext}>{activeCoupon.figi === bond.figi ? activeCoupon.value : ''}</p>
+                            <button className={style.bond__button}  onClick={(e) => {
+                                e.stopPropagation();
+                                e.preventDefault();
+                                getCoupon(bond.figi);
+                            }}>Узнать</button>
+                        </div>
                         <div className={style.bond__text}>Дата окончания: <p
                             className={style.bond__subtext}>{bond.maturityDate ? bond.maturityDate.slice(0, 10) : "Не указано"}</p>
                         </div>
@@ -122,7 +134,7 @@ const Bonds = () => {
                 ))) : null
                 }
             </div>
-            <Pagination nextPage={nextPage} prevPage={prevPage} />
+            <Pagination nextPage={nextPage} prevPage={prevPage}/>
         </div>
     );
 };

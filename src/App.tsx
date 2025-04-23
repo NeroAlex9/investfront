@@ -17,7 +17,7 @@ function App() {
             <div className={style.app__main}>
                 <div className={style.container}>
                     <Routes>
-                        <Route path="/dashboard" element={<Dashboard/>}/>
+                        <Route path="/" element={<Dashboard/>}/>
                         <Route path="/bonds" element={<Bonds/>}/>
                     </Routes>
                 </div>
