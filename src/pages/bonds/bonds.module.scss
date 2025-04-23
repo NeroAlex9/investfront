@@ -26,10 +26,15 @@ height: 100%;
     &__subtext {
       font-family: 'TinkoffSans-Bold', sans-serif;
       font-weight: bold;
+      padding-left: 3px;
     }
 
     &__button{
       margin-left: 10px;
+      border: black solid 1px;
+      border-radius: 5px;
+      padding: 2px;
+      background-color: rgba(250, 229, 17, 0.61);
     }
   }
 
