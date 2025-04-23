@@ -27,6 +27,9 @@ height: 100%;
       font-family: 'TinkoffSans-Bold', sans-serif;
       font-weight: bold;
       padding-left: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     &__button{
